@@ -1,0 +1,41 @@
+🔍 IAMitul Results for example.com
+📅 Scan Time: 2023-05-15T14:30:45Z
+⏱️ Duration: 12.345s
+
+🚪 Open Ports:
+  - 80/tcp (open) - HTTP
+  - 443/tcp (open) - HTTPS
+
+📁 Directories Found:
+  - http://example.com/admin
+  - http://example.com/docs
+
+🔌 API Endpoints Found:
+  - http://example.com/api/v1
+  - http://example.com/api/status
+
+🌐 Subdomains Found:
+  - www.example.com
+  - mail.example.com
+
+📋 DNS Records:
+  A: 93.184.216.34
+  NS: ns1.example.com, ns2.example.com
+
+🛠️ Technologies Detected:
+  - Server: Apache/2.4.41
+  - X-Powered-By: PHP/7.4.28
+
+🔒 SSL Information:
+  Issuer: Let's Encrypt
+  Subject: example.com
+  Valid From: May 1 12:00:00 2023 GMT
+  Valid To: Aug 1 12:00:00 2023 GMT
+  Fingerprint: 12:34:56:78:90:AB:CD:EF:12:34:56:78:90:AB:CD:EF
+
+🛡️ WAF Detected: Cloudflare
+
+⚙️ Scan Options:
+  Threads: 10
+  Timeout: 10s
+  Modules: ports, dirs, api, subdomains, dns, tech, ssl, waf

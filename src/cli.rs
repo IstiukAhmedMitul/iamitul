@@ -1,0 +1,102 @@
+use clap::{Arg, Command};
+
+pub fn build_cli() -> Command<'static> {
+    Command::new("IAMitul")
+        .version("0.1.0")
+        .about("High-performance reconnaissance tool")
+        .arg(
+            Arg::new("target")
+                .help("Target domain or IP")
+                .required(true)
+                .index(1)
+        )
+        .arg(
+            Arg::new("output")
+                .help("Output format (text, json, html)")
+                .short('o')
+                .long("output")
+                .default_value("text")
+        )
+        .arg(
+            Arg::new("verbose")
+                .help("Enable verbose output")
+                .short('v')
+                .long("verbose")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("threads")
+                .help("Threads to use (default: auto)")
+                .short('t')
+                .long("threads")
+                .default_value("0")
+        )
+        .arg(
+            Arg::new("timeout")
+                .help("Timeout in seconds (default: 10)")
+                .short('T')
+                .long("timeout")
+                .default_value("10")
+        )
+        .arg(
+            Arg::new("wordlist")
+                .help("Custom wordlist path")
+                .short('w')
+                .long("wordlist")
+        )
+        .arg(
+            Arg::new("all")
+                .help("Enable all modules")
+                .short('a')
+                .long("all")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("ports")
+                .help("Enable port scanning")
+                .long("ports")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("dirs")
+                .help("Enable directory brute-forcing")
+                .long("dirs")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("api")
+                .help("Enable API discovery")
+                .long("api")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("subdomains")
+                .help("Enable subdomain enumeration")
+                .long("subdomains")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("dns")
+                .help("Enable DNS analysis")
+                .long("dns")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("tech")
+                .help("Enable technology detection")
+                .long("tech")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("ssl")
+                .help("Enable SSL analysis")
+                .long("ssl")
+                .action(clap::ArgAction::SetTrue)
+        )
+        .arg(
+            Arg::new("waf")
+                .help("Enable WAF detection")
+                .long("waf")
+                .action(clap::ArgAction::SetTrue)
+        )
+}

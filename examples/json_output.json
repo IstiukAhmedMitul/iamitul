@@ -1,0 +1,63 @@
+{
+  "target": "example.com",
+  "timestamp": "2023-05-15T14:30:45Z",
+  "scan_duration": "12.345s",
+  "ports": [
+    {
+      "port": 80,
+      "protocol": "tcp",
+      "state": "open",
+      "service": "HTTP",
+      "version": null
+    },
+    {
+      "port": 443,
+      "protocol": "tcp",
+      "state": "open",
+      "service": "HTTPS",
+      "version": null
+    }
+  ],
+  "directories": [
+    "http://example.com/admin",
+    "http://example.com/docs"
+  ],
+  "api_endpoints": [
+    "http://example.com/api/v1",
+    "http://example.com/api/status"
+  ],
+  "subdomains": [
+    "www.example.com",
+    "mail.example.com"
+  ],
+  "dns_records": {
+    "A": ["93.184.216.34"],
+    "NS": ["ns1.example.com", "ns2.example.com"]
+  },
+  "technologies": [
+    "Server: Apache/2.4.41",
+    "X-Powered-By: PHP/7.4.28"
+  ],
+  "ssl_info": {
+    "issuer": "Let's Encrypt",
+    "subject": "example.com",
+    "valid_from": "May 1 12:00:00 2023 GMT",
+    "valid_to": "Aug 1 12:00:00 2023 GMT",
+    "fingerprint": "12:34:56:78:90:AB:CD:EF:12:34:56:78:90:AB:CD:EF"
+  },
+  "waf_detected": "Cloudflare",
+  "scan_options": {
+    "threads": 10,
+    "timeout": 10,
+    "modules_enabled": [
+      "ports",
+      "dirs",
+      "api",
+      "subdomains",
+      "dns",
+      "tech",
+      "ssl",
+      "waf"
+    ]
+  }
+}
