@@ -1,18 +1,22 @@
-# IAMitul 🚀  
-**High-Performance Reconnaissance Tool**
+# 🔍 IAMitul – High-Performance Reconnaissance Tool
 
-IAMitul is a blazing fast, comprehensive reconnaissance tool written in **Rust** for security professionals and penetration testers.
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-Linux-blue)
+![Language](https://img.shields.io/badge/language-Rust-orange)
+![Version](https://img.shields.io/badge/version-0.1.0-informational)
+
+A blazing-fast, comprehensive reconnaissance tool written in **Rust** for **security professionals, penetration testers, and CTF players**.
 
 ---
 
-## ✨ Features
+## 🌟 Features
 
 - ⚡ **High Performance** – Built with Rust for maximum speed and efficiency  
 - 🔍 **Comprehensive Scanning** – All-in-one reconnaissance capabilities  
 - 🧩 **Modular Design** – Enable only the modules you need  
 - 📊 **Multiple Output Formats** – Text, JSON, and HTML reports  
 - 🛡️ **WAF Detection** – Identify Web Application Firewalls  
-- 🔒 **SSL Analysis** – Detailed certificate information  
+- 🔒 **SSL Analysis** – Detailed certificate inspection  
 - 🌐 **Subdomain Enumeration** – Discover related domains  
 - 📁 **Directory Brute-Forcing** – Find hidden directories and files  
 - 🔌 **API Discovery** – Uncover API endpoints  
@@ -30,20 +34,31 @@ IAMitul is a blazing fast, comprehensive reconnaissance tool written in **Rust**
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+Restart your terminal after installation.
+
 2️⃣ Clone and Build
 git clone https://github.com/yourusername/iamitul.git
 cd iamitul
 cargo build --release
 
 3️⃣ Install System-Wide
-cargo install --path .
+sudo cp target/release/iamitul /usr/local/bin/
+
+
+Verify installation:
+
+iamitul --version
+
+Pre-compiled Binaries
+
+Download the latest binary from the Releases page.
 
 🚀 Usage
 Basic Scan
 iamitul example.com
 
 Comprehensive Scan
-iamitul example.com --all --threads 20 --timeout 15
+iamitul example.com --all
 
 JSON Output
 iamitul example.com --all --output json > scan_results.json
@@ -57,35 +72,24 @@ iamitul example.com --ports --ssl --waf --verbose
 Custom Wordlist
 iamitul example.com --dirs --wordlist /path/to/wordlist.txt
 
-🧾 Command Line Options
-IAMitul 0.1.0
-High-performance reconnaissance tool
-
-USAGE:
-    iamitul [OPTIONS] <TARGET>
-
-ARGS:
-    <TARGET>    Target domain or IP
-
-OPTIONS:
-    -a, --all                 Enable all modules
-        --api                 Enable API discovery
-        --dns                 Enable DNS analysis
-        --dirs                Enable directory brute-forcing
-    -h, --help                Print help information
-        --ports               Enable port scanning
-        --ssl                 Enable SSL analysis
-        --subdomains          Enable subdomain enumeration
-        --tech                Enable technology detection
-        --threads <THREADS>   Threads to use (default: auto)
-    -t, --timeout <TIMEOUT>   Timeout in seconds (default: 10)
-    -v, --verbose             Enable verbose output
-        --waf                 Enable WAF detection
-    -w, --wordlist <WORDLIST> Custom wordlist path
-    -o, --output <OUTPUT>     Output format (text, json, html)
-    -V, --version             Print version information
-
-🧩 Modules
+⚙️ Command Line Options
+Option	Description	Default
+<TARGET>	Target domain or IP	Required
+-a, --all	Enable all modules	-
+--api	Enable API discovery	-
+--dns	Enable DNS analysis	-
+--dirs	Enable directory brute-forcing	-
+--ports	Enable port scanning	-
+--ssl	Enable SSL analysis	-
+--subdomains	Enable subdomain enumeration	-
+-t, --threads	Threads to use (0 = auto)	0
+-T, --timeout	Timeout in seconds	10
+-v, --verbose	Enable verbose output	-
+--waf	Enable WAF detection	-
+-w, --wordlist	Custom wordlist path	-
+-o, --output	Output format (text/json/html)	text
+-V, --version	Print version information	-
+🔧 Modules
 🔌 Port Scanner
 
 Scans common TCP ports
@@ -98,48 +102,153 @@ Fast asynchronous scanning
 
 Discovers hidden directories and files
 
-Supports custom and built-in wordlists
+Custom or built-in wordlists
 
-Concurrent requests for speed
+Concurrent HTTP requests
 
 🔍 API Discovery
 
 Finds common API endpoints
 
-Identifies REST and GraphQL APIs
-
-Supports custom endpoint lists
+Detects REST and GraphQL APIs
 
 🌐 Subdomain Enumeration
 
 Discovers subdomains using multiple techniques
 
-Supports custom wordlists
-
 Concurrent DNS resolution
 
 📋 DNS Analysis
 
-Gathers DNS records (A, AAAA, MX, NS, TXT, SOA)
+Gathers A, AAAA, MX, NS, TXT, SOA records
 
-Identifies potential misconfigurations
+Identifies misconfigurations
 
 🛠️ Technology Detection
 
-Identifies frameworks, servers, and libraries
+Detects frameworks, servers, and libraries
 
-Analyzes headers and content
+Analyzes headers and page content
 
 🔒 SSL Analysis
 
-Detailed certificate information
+Certificate inspection
 
-Identifies SSL/TLS versions
+TLS version detection
 
-Checks for common vulnerabilities
+Vulnerability checks
 
 🛡️ WAF Detection
 
-Identifies common WAF products
+Detects common WAF products
 
 Analyzes headers and responses
+
+📄 Output Formats
+Text
+
+Clean, human-readable output with color-coded sections.
+
+JSON
+
+Structured output for automation and integrations.
+
+HTML
+
+Professional reports suitable for documentation and presentations.
+
+📁 Wordlists
+
+Built-in wordlists:
+
+common.txt
+
+directories.txt
+
+api_endpoints.txt
+
+subdomains.txt
+
+Install SecLists (Recommended)
+sudo apt update && sudo apt install seclists
+
+
+Use with:
+
+iamitul example.com --dirs --wordlist /usr/share/seclists/Discovery/Web-Content/common.txt
+
+🏗️ Architecture
+iamitul/
+├── Cargo.toml
+├── src/
+│   ├── main.rs
+│   ├── cli.rs
+│   ├── modules/
+│   │   ├── port_scanner.rs
+│   │   ├── dirbuster.rs
+│   │   ├── api_discovery.rs
+│   │   ├── subdomain_enum.rs
+│   │   ├── dns_analysis.rs
+│   │   ├── tech_detection.rs
+│   │   ├── ssl_analysis.rs
+│   │   └── waf_detection.rs
+│   ├── utils/
+│   │   ├── output.rs
+│   │   ├── config.rs
+│   │   └── progress.rs
+│   └── wordlists/
+│       ├── common.txt
+│       ├── directories.txt
+│       ├── api_endpoints.txt
+│       └── subdomains.txt
+├── README.md
+├── LICENSE
+└── examples/
+    ├── basic_scan.txt
+    └── json_output.json
+
+🚀 Performance Highlights
+
+Asynchronous processing
+
+Parallel DNS resolution
+
+Connection pooling
+
+Optimized wordlists
+
+Configurable threading
+
+🤝 Contributing
+
+Contributions are welcome!
+
+git checkout -b feature/amazing-feature
+git commit -m "Add amazing feature"
+git push origin feature/amazing-feature
+
+
+Open a Pull Request 🎉
+
+📜 License
+
+Licensed under the MIT License.
+
+⚠️ Disclaimer
+
+This tool is for educational and authorized security testing only.
+You are responsible for obtaining permission before scanning any systems.
+
+🙏 Acknowledgments
+
+Rust & Tokio
+
+Clap CLI framework
+
+SecLists by Daniel Miessler
+
+Security research community
+
+
+
+Made with ❤️ for the security community
