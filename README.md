@@ -54,8 +54,6 @@ Pre-compiled Binaries
 Download the latest binary from the Releases page.
 
 🚀 Usage
-Basic Scan
-iamitul example.com
 
 Comprehensive Scan
 iamitul example.com --all
@@ -173,9 +171,6 @@ Install SecLists (Recommended)
 sudo apt update && sudo apt install seclists
 
 
-Use with:
-
-iamitul example.com --dirs --wordlist /usr/share/seclists/Discovery/Web-Content/common.txt
 
 🏗️ Architecture
 iamitul/
