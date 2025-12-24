@@ -26,7 +26,11 @@ A blazing-fast, comprehensive reconnaissance tool written in **Rust** for **secu
 
 ---
 <p align="center">
-  <img src="Images/istiukahmedmitul2.png" width="800">
+  <img src="Images/Istiukahmedmitul2.png" width="800">
+</p>
+
+<p align="center">
+  <img src="Images/Istiukahmedmitul1.png" width="800">
 </p>
 
 
