@@ -33,6 +33,10 @@ A blazing-fast, comprehensive reconnaissance tool written in **Rust** for **secu
   <img src="Images/Istiukahmedmitul1.png" width="800">
 </p>
 
+## 🎬 Demo
+
+[Watch Demo Video](Images/A%20High-Performance%20Reconnaissance%20Tool%20built%20with%20Rust!.mp4)
+
 
 ## 📦 Installation
 
