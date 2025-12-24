@@ -25,6 +25,10 @@ A blazing-fast, comprehensive reconnaissance tool written in **Rust** for **secu
 - 🛠️ **Technology Detection** – Identify web technologies  
 
 ---
+<p align="center">
+  <img src="Images/istiukahmedmitul2.png" width="800">
+</p>
+
 
 ## 📦 Installation
 
